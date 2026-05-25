@@ -46,12 +46,12 @@ export default function Header({
 }: HeaderProps) {
   
   const rawTabs = [
-    { id: 'dashboard', label: 'Tổng Quan Hiệu Suất', icon: BarChart3 },
-    { id: 'browser', label: 'Trình Duyệt Báo Cáo', icon: BookOpen },
+    { id: 'dashboard', label: 'Hiệu Suất', icon: BarChart3 },
+    { id: 'browser', label: 'Báo Cáo', icon: BookOpen },
     { id: 'leaderboard', label: 'Bảng Xếp Hạng', icon: Trophy },
     { id: 'manager', label: currentUser?.role === 'tkcs' ? 'Nộp Báo Cáo' : 'Nhập Điểm Thi Đua', icon: Edit },
-    { id: 'departments', label: 'Góc Nhìn Phòng Ban', icon: Briefcase },
-    { id: 'importer', label: 'Cổng Nạp Excel', icon: Upload },
+    { id: 'departments', label: 'Phòng Ban', icon: Briefcase },
+    { id: 'importer', label: 'Nạp Excel', icon: Upload },
     { id: 'accounts', label: 'Phân Quyền', icon: Users }
   ] as const;
 
@@ -159,17 +159,17 @@ export default function Header({
             <div>
               <div className="flex items-center space-x-2">
                 <span className="text-[9px] text-white font-mono tracking-wider font-extrabold uppercase bg-linear-to-r from-sky-500 to-indigo-600 px-2 py-0.5 rounded">
-                  Hành chính công • Tổng cục thống kê
+                  THỐNG KÊ TỈNH HƯNG YÊN
                 </span>
                 <span className="text-[9px] font-semibold text-sky-600 bg-sky-50 px-1.5 py-0.5 rounded flex items-center gap-0.5 border border-sky-150">
                   <Sparkles className="w-2.5 h-2.5 animate-spin" /> Bản Sáng 2026
                 </span>
               </div>
               <h1 className="text-md sm:text-xl font-extrabold tracking-tight font-sans text-slate-900 mt-0.5" id="app-title-header">
-                Phần mềm Giao điểm Thi đua cấp Huyện
+                Phần mềm Giao điểm Thi đua cấp TKCS
               </h1>
               <p className="text-[11px] text-slate-500 font-sans leading-none mt-0.5">
-                Vietnam Statistics System — Kênh quản lý nộp báo cáo chuyên môn nghiệp vụ tự động.
+                Hệ thống quản lý giao điểm thi đua Thống kê tỉnh Hưng yên.
               </p>
             </div>
           </div>
