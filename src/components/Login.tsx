@@ -103,7 +103,7 @@ export default function Login({ onLoginSuccess, units }: LoginProps) {
             <Trophy className="h-7 w-7" />
           </div>
           <span className="text-[10px] text-sky-600 uppercase tracking-widest font-extrabold bg-sky-50 border border-sky-150 px-3 py-1 rounded-full font-mono">
-            Hành chính công • Tổng cục thống kê
+            THỐNG KÊ TỈNH HƯNG YÊN
           </span>
           <h2 className="mt-2 text-xl sm:text-2xl font-black text-slate-900 tracking-tight font-sans">
             HỆ THỐNG QUẢN LÝ ĐIỂM THI ĐUA
