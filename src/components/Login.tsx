@@ -53,7 +53,7 @@ export default function Login({ onLoginSuccess, units }: LoginProps) {
           onLoginSuccess({
             username: 'admin',
             role: 'admin',
-            displayName: 'Trưởng ban Thi đua (Thống kê tỉnh Hưng Yên)',
+            displayName: 'Trưởng ban Thi đua (Cục Thống kê)',
             permissions: ['view_reports', 'grade_reports', 'upload_excel', 'manage_accounts']
           });
         } else if (matchedCustom && matchedCustom.role === 'admin') {
@@ -102,11 +102,11 @@ export default function Login({ onLoginSuccess, units }: LoginProps) {
           <div className="bg-gradient-to-tr from-sky-500 to-indigo-600 p-3.5 rounded-2xl text-white shadow-xl shadow-sky-500/10 mb-4 scale-105">
             <Trophy className="h-7 w-7" />
           </div>
-          <span className="text-[10px] text-sky-600 uppercase tracking-widest font-extrabold bg-sky-50 border border-sky-150 px-3 py-1 rounded-full font-mono">
-            THỐNG KÊ TỈNH HƯNG YÊN
+          <span className="text-[10px] text-sky-600 uppercase tracking-widest font-extrabold bg-sky-50 border border-sky-150 px-3 py-1 rounded-full font-sans">
+            Thống kê Tỉnh Hưng Yên
           </span>
           <h2 className="mt-2 text-xl sm:text-2xl font-black text-slate-900 tracking-tight font-sans">
-            HỆ THỐNG QUẢN LÝ ĐIỂM THI ĐUA
+            CỔNG ĐĂNG NHẬP THI ĐUA
           </h2>
           <p className="mt-1 text-xs text-slate-500 max-w-sm font-sans px-4">
             Hệ thống quản lý, giao chỉ tiêu số liệu và đánh giá thời hạn chấm điểm các chi cục thống kê cấp tỉnh/huyện.
@@ -130,7 +130,7 @@ export default function Login({ onLoginSuccess, units }: LoginProps) {
               }`}
             >
               <KeyRound className="w-3.5 h-3.5" />
-              <span> (Phong_TK)</span>
+              <span>ADMIN</span>
             </button>
             <button 
               type="button"
@@ -142,7 +142,7 @@ export default function Login({ onLoginSuccess, units }: LoginProps) {
               }`}
             >
               <CheckSquare className="w-3.5 h-3.5" />
-              <span> (TKCS)</span>
+              <span>Đơn vị nộp (TKCS)</span>
             </button>
           </div>
 
@@ -253,22 +253,6 @@ export default function Login({ onLoginSuccess, units }: LoginProps) {
             </button>
 
           </form>
-
-          {/* Quick guide and Default Credentials box */}
-          <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2 text-slate-500 text-[11px] leading-relaxed font-sans">
-            <div className="flex items-center space-x-1.5 text-slate-700 font-bold uppercase text-[10px] tracking-wide">
-              <Info className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
-              <span>GỢI Ý TÀI KHOẢN THỬ NGHIỆM</span>
-            </div>
-            <ul className="list-disc pl-4 space-y-1">
-              <li>
-                <span className="font-semibold text-slate-700">Tài khoản Admin</span>: Nhập tên đăng nhập <code className="bg-slate-100 px-1 py-0.5 rounded font-bold font-mono">admin</code>, mật khẩu <code className="bg-slate-100 px-1 py-0.5 rounded font-bold font-mono">123</code>.
-              </li>
-              <li>
-                <span className="font-semibold text-slate-700">Tài khoản Đơn vị (TKCS)</span>: Chọn bất kỳ cơ sở thống kê nào, nhập mật khẩu <code className="bg-slate-100 px-1 py-0.5 rounded font-bold font-mono">123</code>.
-              </li>
-            </ul>
-          </div>
 
         </div>
       </div>
