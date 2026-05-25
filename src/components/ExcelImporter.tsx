@@ -60,7 +60,7 @@ export default function ExcelImporter({ onImportComplete, existingCount }: Excel
           const maDv = String(getVal(['Ma_DV', 'MaDV', 'MaDonVi', 'Mã_DV'])).trim();
           const tenDonVi = String(getVal(['Ten_Don_Vi', 'TenDonVi', 'Tên_Đơn_Vị', 'Ten_Don_Vi_Xep_Hang'])).trim();
           const maPhong = String(getVal(['Ma_Phong', 'MaPhong', 'Mã_Phòng'])).trim() || 'P_TH';
-          const tenPhong = String(getVal(['Ten_Phong', 'TenPhong', 'Tên_Phòng'])).trim() || 'Phòng Tổng hợp';
+          const tenPhong = String(getVal(['Ten_Phong', 'TenPhong', 'Tên_Phòng'])).trim() || 'Phòng Thống kê Tổng hợp';
           const tenBaoCao = String(getVal(['Ten_Bao_Cao', 'TenBaoCao', 'Tên_Báo_Cáo', 'Tên_Bao_Cao_Giao_Diem'])).trim();
           const loaiBc = String(getVal(['Loai_BC', 'LoaiBC', 'Loài_BC', 'Ky_Khai_Bao'])).trim() || 'Tháng';
           
