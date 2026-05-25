@@ -47,11 +47,11 @@ export default function Header({
   
   const rawTabs = [
     { id: 'dashboard', label: 'Tổng Quan Hiệu Suất', icon: BarChart3 },
-    { id: 'browser', label: 'Trình Duyệt Báo Cáo', icon: BookOpen },
+    { id: 'browser', label: 'Xem chi tiết báo cáo', icon: BookOpen },
     { id: 'leaderboard', label: 'Bảng Xếp Hạng', icon: Trophy },
     { id: 'manager', label: currentUser?.role === 'tkcs' ? 'Nộp Báo Cáo' : 'Nhập Điểm Thi Đua', icon: Edit },
-    { id: 'departments', label: 'Góc Nhìn Phòng Ban', icon: Briefcase },
-    { id: 'importer', label: 'Cổng Nạp Excel', icon: Upload },
+    { id: 'departments', label: 'Phòng Ban', icon: Briefcase },
+    { id: 'importer', label: 'Cổng Nạp Dữ Liệu Excel', icon: Upload },
     { id: 'accounts', label: 'Phân Quyền', icon: Users }
   ] as const;
 
@@ -159,14 +159,14 @@ export default function Header({
             <div>
               <div className="flex items-center space-x-2">
                 <span className="text-[10px] text-white font-sans tracking-wide font-extrabold uppercase bg-gradient-to-r from-red-600 via-blue-600 to-indigo-700 px-2.5 py-0.5 rounded-full shadow-sm">
-                  Cục Thống kê Tỉnh Hưng Yên
+                  Thống kê Tỉnh Hưng Yên
                 </span>
                 <span className="text-[9px] font-semibold text-sky-600 bg-sky-50 px-1.5 py-0.5 rounded flex items-center gap-0.5 border border-sky-150">
                   <Sparkles className="w-2.5 h-2.5 animate-spin" /> Phiên bản 2026
                 </span>
               </div>
               <h1 className="text-md sm:text-2xl font-black tracking-tight font-sans text-slate-900 mt-1" id="app-title-header">
-                PHẦN MỀM ĐÁNH GIÁ THI ĐUA THỐNG KÊ HƯNG YÊN
+                HỆ THỐNG QUẢN LÝ & CHẤM ĐIỂM THI ĐUA BÁO CÁO THỐNG KÊ
               </h1>
               <p className="text-[11px] text-slate-500 font-sans leading-none mt-0.5">
                 Vietnam Statistics System — Kênh quản lý nộp báo cáo chuyên môn nghiệp vụ tự động.

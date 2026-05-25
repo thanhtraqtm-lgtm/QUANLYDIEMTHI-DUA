@@ -53,7 +53,7 @@ export default function Login({ onLoginSuccess, units }: LoginProps) {
           onLoginSuccess({
             username: 'admin',
             role: 'admin',
-            displayName: 'Trưởng ban Thi đua (Cục Thống kê)',
+            displayName: 'Trưởng ban Thi đua (Thống kê Tỉnh Hưng Yên)',
             permissions: ['view_reports', 'grade_reports', 'upload_excel', 'manage_accounts']
           });
         } else if (matchedCustom && matchedCustom.role === 'admin') {
@@ -74,13 +74,13 @@ export default function Login({ onLoginSuccess, units }: LoginProps) {
             username: selectedUnitCode.toLowerCase(),
             role: 'tkcs',
             unitCode: selectedUnitCode,
-            displayName: selectedUnit ? selectedUnit.Ten_Don_Vi : `Chi cục Thống kê ${selectedUnitCode}`,
+            displayName: selectedUnit ? selectedUnit.Ten_Don_Vi : `Thống kê Cơ Sở ${selectedUnitCode}`,
             permissions: ['view_reports']
           });
         } else if (matchedCustom && matchedCustom.role === 'tkcs') {
           onLoginSuccess(matchedCustom);
         } else {
-          setErrorMsg('Mật khẩu đăng nhập chi cục không đúng hoặc chưa được tạo. Gợi ý mặc định: 123');
+          setErrorMsg('Mật khẩu đăng nhập đơn vị thống kê cơ sở không đúng hoặc chưa được tạo. Gợi ý mặc định: 123');
           setIsLoading(false);
         }
       }
@@ -106,10 +106,10 @@ export default function Login({ onLoginSuccess, units }: LoginProps) {
             Thống kê Tỉnh Hưng Yên
           </span>
           <h2 className="mt-2 text-xl sm:text-2xl font-black text-slate-900 tracking-tight font-sans">
-            ĐĂNG NHẬP GIAO ĐIỂM THI ĐUA
+            ĐĂNG NHẬP HỆ THỐNG THI ĐUA BÁO CÁO
           </h2>
           <p className="mt-1 text-xs text-slate-500 max-w-sm font-sans px-4">
-            Hệ thống quản lý, giao chỉ tiêu số liệu và đánh giá thời hạn chấm điểm các chi cục thống kê cấp tỉnh/huyện.
+            Hệ thống quản lý, giao chỉ tiêu số liệu và đánh giá thời hạn chấm điểm các đơn vị thống kê cơ sở.
           </p>
         </div>
 
