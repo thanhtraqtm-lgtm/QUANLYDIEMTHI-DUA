@@ -46,7 +46,7 @@ export default function App() {
       {
         username: 'admin',
         role: 'admin',
-        displayName: 'Trưởng ban Thi đua (Cục Thống kê)',
+        displayName: 'Trưởng ban Thi đua (Thống kê tỉnh Hưng Yên)',
         password: '123',
         permissions: ['view_reports', 'grade_reports', 'upload_excel', 'manage_accounts']
       }
@@ -90,7 +90,7 @@ export default function App() {
       {
         username: 'admin',
         role: 'admin',
-        displayName: 'Trưởng ban Thi đua (Cục Thống kê)',
+        displayName: 'Trưởng ban Thi đua (Thông kê tỉnh Huwng Yên)',
         password: '123',
         permissions: ['view_reports', 'grade_reports', 'upload_excel', 'manage_accounts']
       }
