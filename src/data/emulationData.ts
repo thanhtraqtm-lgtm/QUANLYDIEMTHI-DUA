@@ -6,24 +6,24 @@
 import { Unit, ReportSubmission, Department } from '../types';
 
 export const UNITS_DATA: Unit[] = [
-  { Ma_DV: 'TKPH', Ten_Don_Vi: 'Thống kê cơ sở Phố hiến', Vung: 'Hưng Yên' },
-  { Ma_DV: 'TKNQ', Ten_Don_Vi: 'Thống kê cơ sở Như Quỳnh', Vung: 'Hưng Yên' },
-  { Ma_DV: 'TKYM', Ten_Don_Vi: 'Thống kê cơ sở Yên Mỹ', Vung: 'Hưng Yên' },
-  { Ma_DV: 'TKMH', Ten_Don_Vi: 'Thống kê cơ sở Mỹ Hào', Vung: 'Hưng Yên' },
-  { Ma_DV: 'TKKC', Ten_Don_Vi: 'Thống kê cơ sở Khoái Châu', Vung: 'Hưng Yên' },
-  { Ma_DV: 'TKLB', Ten_Don_Vi: 'Thống kê cơ sở Lương Bằng', Vung: 'Hưng Yên' },
-  { Ma_DV: 'TKHHT', Ten_Don_Vi: 'Thống kê cơ sở Hoàng Hoa Thám', Vung: 'Hưng Yên' },
-  { Ma_DV: 'TKQP', Ten_Don_Vi: 'Thống kê cơ sở Quỳnh Phụ', Vung: 'Thái Bình' },
-  { Ma_DV: 'TKHH', Ten_Don_Vi: 'Thống kê cơ sở Hưng hà', Vung: 'Thái Bình' },
-  { Ma_DV: 'TKDH', Ten_Don_Vi: 'Thống kê cơ sở Đông Hưng', Vung: 'Thái Bình' },
-  { Ma_DV: 'TKTT', Ten_Don_Vi: 'Thống kê cơ sở Thái Thụy', Vung: 'Thái Bình' },
-  { Ma_DV: 'TKTH', Ten_Don_Vi: 'Thống kê cơ sở Tiền Hải', Vung: 'Thái Bình' },
-  { Ma_DV: 'TKKX', Ten_Don_Vi: 'Thống kê cơ sở Kiến Xương', Vung: 'Thái Bình' },
-  { Ma_DV: 'TKVT', Ten_Don_Vi: 'Thống kê cơ sở Vũ Thư', Vung: 'Thái Bình' }
+  { Ma_DV: 'TKPH', Ten_Don_Vi: 'Chi cục Thống kê TP. Hưng Yên', Vung: 'Hưng Yên' },
+  { Ma_DV: 'TKNQ', Ten_Don_Vi: 'Chi cục Thống kê huyện Văn Lâm', Vung: 'Hưng Yên' },
+  { Ma_DV: 'TKYM', Ten_Don_Vi: 'Chi cục Thống kê huyện Yên Mỹ', Vung: 'Hưng Yên' },
+  { Ma_DV: 'TKMH', Ten_Don_Vi: 'Chi cục Thống kê thị xã Mỹ Hào', Vung: 'Hưng Yên' },
+  { Ma_DV: 'TKKC', Ten_Don_Vi: 'Chi cục Thống kê huyện Khoái Châu', Vung: 'Hưng Yên' },
+  { Ma_DV: 'TKLB', Ten_Don_Vi: 'Chi cục Thống kê huyện Kim Động', Vung: 'Hưng Yên' },
+  { Ma_DV: 'TKHHT', Ten_Don_Vi: 'Chi cục Thống kê huyện Phù Cừ', Vung: 'Hưng Yên' },
+  { Ma_DV: 'TKQP', Ten_Don_Vi: 'Chi cục Thống kê huyện Quỳnh Phụ', Vung: 'Thái Bình' },
+  { Ma_DV: 'TKHH', Ten_Don_Vi: 'Chi cục Thống kê huyện Hưng Hà', Vung: 'Thái Bình' },
+  { Ma_DV: 'TKDH', Ten_Don_Vi: 'Chi cục Thống kê huyện Đông Hưng', Vung: 'Thái Bình' },
+  { Ma_DV: 'TKTT', Ten_Don_Vi: 'Chi cục Thống kê huyện Thái Thụy', Vung: 'Thái Bình' },
+  { Ma_DV: 'TKTH', Ten_Don_Vi: 'Chi cục Thống kê huyện Tiền Hải', Vung: 'Thái Bình' },
+  { Ma_DV: 'TKKX', Ten_Don_Vi: 'Chi cục Thống kê huyện Kiến Xương', Vung: 'Thái Bình' },
+  { Ma_DV: 'TKVT', Ten_Don_Vi: 'Chi cục Thống kê huyện Vũ Thư', Vung: 'Thái Bình' }
 ];
 
 export const DEPARTMENTS_DATA: Department[] = [
-  { Ma_Phong: 'P_TH', Ten_Phong: 'Phòng Tổng hợp dạt dào' },
+  { Ma_Phong: 'P_TH', Ten_Phong: 'Phòng Thống kê Tổng hợp' },
   { Ma_Phong: 'P_TC', Ten_Phong: 'Phòng Tài chính - Kế hoạch' },
   { Ma_Phong: 'P_TCHC', Ten_Phong: 'Phòng Tổ chức - Hành chính' },
   { Ma_Phong: 'P_NN', Ten_Phong: 'Phòng Thống kê Nông nghiệp' },
@@ -32,9 +32,9 @@ export const DEPARTMENTS_DATA: Department[] = [
 ];
 
 export const REPORT_TEMPLATES = [
-  { name: "Ước thu ngân sách 6 tháng đầu năm", dept: "P_TH", deptName: "Phòng Tổng hợp dạt dào", type: "Năm", deadline: "2026-06-15", score: 30 },
-  { name: "Báo cáo ước tính thu ngân sách 6 tháng", dept: "P_TH", deptName: "Phòng Tổng hợp dạt dào", type: "Năm", deadline: "2026-06-15", score: 30 },
-  { name: "Niên giám Thống kê cấp xã năm 2025", dept: "P_TH", deptName: "Phòng Tổng hợp dạt dào", type: "Năm", deadline: "2026-06-15", score: 200 },
+  { name: "Ước thu ngân sách 6 tháng đầu năm", dept: "P_TH", deptName: "Phòng Thống kê Tổng hợp", type: "Năm", deadline: "2026-06-15", score: 30 },
+  { name: "Báo cáo ước tính thu ngân sách 6 tháng", dept: "P_TH", deptName: "Phòng Thống kê Tổng hợp", type: "Năm", deadline: "2026-06-15", score: 30 },
+  { name: "Niên giám Thống kê cấp xã năm 2025", dept: "P_TH", deptName: "Phòng Thống kê Tổng hợp", type: "Năm", deadline: "2026-06-15", score: 200 },
   { name: "Báo cáo tổng kết công tác năm", dept: "P_TC", deptName: "Phòng Tài chính - Kế hoạch", type: "Năm", deadline: "2025-11-01", score: 50 },
   { name: "Báo cáo tổng kết công tác thống kê năm 2025", dept: "P_TC", deptName: "Phòng Tài chính - Kế hoạch", type: "Năm", deadline: "2026-11-20", score: 50 },
   { name: "Báo cáo thiên tai tháng 01/2026", dept: "P_NN", deptName: "Phòng Thống kê Nông nghiệp", type: "Tháng", deadline: "2026-01-25", score: 30 },
@@ -133,7 +133,7 @@ export function generateInitialSubmissions(): ReportSubmission[] {
           diemThoiGian = template.score;
           diemChatLuong = Math.round(template.score * 0.95 * 10) / 10;
           tongDiem = Math.round((diemThoiGian + diemChatLuong) * 10) / 10;
-          nhanXet = "Nộp sớm dạt dào trước hạn định. Số liệu được duyệt nhanh chóng.";
+          nhanXet = "Nộp báo cáo sớm trước hạn định. Số liệu được thẩm định và phê chuẩn.";
         } else {
           ngayNop = null;
           soNgayTre = null;
