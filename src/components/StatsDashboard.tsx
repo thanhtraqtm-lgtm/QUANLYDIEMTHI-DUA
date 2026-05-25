@@ -30,10 +30,22 @@ export default function StatsDashboard({ submissions, leaderboard, onSelectUnit 
   // Overdue and Non-submitted
   const overdueCount = submissions.filter(s => s.Ngay_Nop === null && new Date(s.Han_Nop) < new Date('2026-05-25')).length;
 
-  // Average Score
+  // Average Score calculations
   const scoredSubmissions = submissions.filter(s => s.Tong_Diem !== null);
   const totalScoreVal = scoredSubmissions.reduce((sum, s) => sum + (s.Tong_Diem ?? 0), 0);
   const avgScore = scoredSubmissions.length > 0 ? totalScoreVal / scoredSubmissions.length : 0;
+
+  // Average Quality Score
+  const qualitySubmissions = submissions.filter(s => s.Diem_Chat_Luong !== null);
+  const avgQualityScore = qualitySubmissions.length > 0
+    ? qualitySubmissions.reduce((sum, s) => sum + (s.Diem_Chat_Luong ?? 0), 0) / qualitySubmissions.length
+    : 0;
+
+  // Average Time Score
+  const timeSubmissions = submissions.filter(s => s.Diem_Thoi_Gian !== null);
+  const avgTimeScore = timeSubmissions.length > 0
+    ? timeSubmissions.reduce((sum, s) => sum + (s.Diem_Thoi_Gian ?? 0), 0) / timeSubmissions.length
+    : 0;
 
   // 2. Region-specific analysis
   const regions = ['Hưng Yên', 'Thái Bình'];
@@ -62,64 +74,109 @@ export default function StatsDashboard({ submissions, leaderboard, onSelectUnit 
   const bottomUnits = [...leaderboard].slice(-3).reverse();
 
   return (
-    <div className="space-y-8" id="stats-dashboard-container">
+    <div className="space-y-6" id="stats-dashboard-container">
+      {/* Premium Welcome Banner for Hung Yen Statistics Campaign */}
+      <div className="bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 p-6 rounded-2xl text-white shadow-lg relative overflow-hidden border border-blue-500/20">
+        <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+          <Award className="w-40 h-40 text-white" />
+        </div>
+        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-wider bg-white/10 text-sky-200 px-3 py-1 rounded-full border border-sky-500/20">
+              Chiến dịch thi đua Thống kê 2026
+            </span>
+            <h2 className="text-xl md:text-2xl font-black mt-2 tracking-tight">
+              BẢNG VÀNG THI ĐUA ĐIỂM CHẤT LƯỢNG & TIẾN ĐỘ THỜI GIAN
+            </h2>
+            <p className="text-xs text-slate-300 mt-1.5 max-w-2xl font-sans leading-relaxed">
+              Hệ thống thi đua tự động đánh giá chi tiết theo hai cột điểm chính: <strong className="text-sky-300 font-bold">Điểm thời gian</strong> (tối đa đạt đúng hạn, giảm trừ điểm trễ) và <strong className="text-yellow-400 font-semibold">Điểm chất lượng Chuyên môn</strong> do Cục Thống kê chấm duyệt.
+            </p>
+          </div>
+          <div className="flex gap-4 items-center shrink-0">
+            <div className="bg-white/5 backdrop-blur-md p-4 rounded-xl border border-white/10 text-center">
+              <span className="text-[10px] uppercase text-sky-300 font-bold block">Tổng số cơ sở</span>
+              <span className="text-xl font-extrabold font-mono text-white mt-0.5 block">{leaderboard.length} đơn vị</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Dynamic Summary Cards Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         
-        {/* Metric 1 */}
-        <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center space-x-5 hover:translate-y-[-2px] transition-transform duration-200">
-          <div className="p-4 bg-sky-50 rounded-xl text-sky-600">
-            <Calendar className="w-6 h-6" />
+        {/* Metric 1 - Tỷ lệ Hoàn thành */}
+        <div className="bg-white p-5 rounded-2xl border-2 border-sky-100 shadow-md flex items-center space-x-4 hover:translate-y-[-2px] transition-transform duration-200 relative overflow-hidden group">
+          <div className="p-3 bg-sky-50 rounded-xl text-sky-600">
+            <Calendar className="w-5 h-5" />
           </div>
           <div>
-            <p className="text-xs text-slate-400 font-medium font-sans tracking-wide uppercase">Tỷ lệ Hoàn thành</p>
-            <h3 className="text-2xl font-bold font-sans text-slate-800 mt-1">{submissionRate.toFixed(1)}%</h3>
-            <p className="text-xs text-slate-500 mt-0.5 font-sans font-normal">
-              Đã nộp: <span className="font-semibold text-slate-700">{totalSubmittedCount}</span> / {totalReportsCount} báo cáo
+            <p className="text-[11px] text-slate-400 font-bold font-sans tracking-wide uppercase">Tỷ lệ Hoàn thành</p>
+            <h3 className="text-xl font-extrabold font-sans text-sky-600 leading-none mt-1.5">{submissionRate.toFixed(1)}%</h3>
+            <p className="text-[10px] text-slate-400 mt-1 font-sans font-medium">
+              Đã nộp: <strong className="text-slate-700 font-bold">{totalSubmittedCount}</strong>/{totalReportsCount} báo cáo
             </p>
           </div>
+          <div className="absolute bottom-0 right-0 w-12 h-1 bg-sky-500 rounded-bl-full" />
         </div>
 
-        {/* Metric 2 */}
-        <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center space-x-5 hover:translate-y-[-2px] transition-transform duration-200">
-          <div className="p-4 bg-emerald-50 rounded-xl text-emerald-600">
-            <Award className="w-6 h-6" />
+        {/* Metric 2 - Điểm Thi Đua TB */}
+        <div className="bg-white p-5 rounded-2xl border-2 border-slate-100 shadow-md flex items-center space-x-4 hover:translate-y-[-2px] transition-transform duration-200 relative overflow-hidden">
+          <div className="p-3 bg-indigo-50 rounded-xl text-indigo-600">
+            <Award className="w-5 h-5" />
           </div>
           <div>
-            <p className="text-xs text-slate-400 font-medium font-sans tracking-wide uppercase">Xếp hạng Điểm TB</p>
-            <h3 className="text-2xl font-bold font-sans text-slate-800 mt-1">{avgScore.toFixed(1)} điểm</h3>
-            <p className="text-xs text-slate-500 mt-0.5 font-sans font-normal">
-              Tính trên tiêu chí hạn & chất lượng
+            <p className="text-[11px] text-slate-400 font-bold font-sans tracking-wide uppercase">Điểm Thi đua TB</p>
+            <h3 className="text-xl font-extrabold font-sans text-indigo-600 leading-none mt-1.5">{avgScore.toFixed(1)} đ</h3>
+            <p className="text-[10px] text-slate-400 mt-1 font-sans font-medium">
+              Chỉ số tổng hợp thi đua
             </p>
           </div>
+          <div className="absolute bottom-0 right-0 w-12 h-1 bg-indigo-500 rounded-bl-full" />
         </div>
 
-        {/* Metric 3 */}
-        <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center space-x-5 hover:translate-y-[-2px] transition-transform duration-200">
-          <div className="p-4 bg-teal-50 rounded-xl text-teal-600">
-            <Clock className="w-6 h-6" />
+        {/* Metric 3 - Điểm Chất lượng TB */}
+        <div className="bg-white p-5 rounded-2xl border-2 border-amber-100 shadow-md flex items-center space-x-4 hover:translate-y-[-2px] transition-transform duration-200 relative overflow-hidden">
+          <div className="p-3 bg-amber-50 rounded-xl text-amber-600">
+            <TrendingUp className="w-5 h-5" />
           </div>
           <div>
-            <p className="text-xs text-slate-400 font-medium font-sans tracking-wide uppercase">Nộp Đúng Hạn đạt</p>
-            <h3 className="text-2xl font-bold font-sans text-slate-800 mt-1">{onTimeRate.toFixed(1)}%</h3>
-            <p className="text-xs text-slate-500 mt-0.5 font-sans font-normal">
-              Trễ hạn: <span className="text-amber-600 font-medium">{lateCount}</span> báo cáo
+            <p className="text-[11px] text-slate-400 font-bold font-sans tracking-wide uppercase">Điểm Chất lượng TB</p>
+            <h3 className="text-xl font-extrabold font-sans text-amber-600 leading-none mt-1.5">{avgQualityScore.toFixed(1)} đ</h3>
+            <p className="text-[10px] text-slate-400 mt-1 font-sans font-medium">
+              Đánh giá từ Phòng nghiệp vụ
             </p>
           </div>
+          <div className="absolute bottom-0 right-0 w-12 h-1 bg-amber-500 rounded-bl-full" />
         </div>
 
-        {/* Metric 4 */}
-        <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center space-x-5 hover:translate-y-[-2px] transition-transform duration-200">
-          <div className="p-4 bg-rose-50 rounded-xl text-rose-600">
-            <AlertCircle className="w-6 h-6" />
+        {/* Metric 4 - Điểm Thời gian TB */}
+        <div className="bg-white p-5 rounded-2xl border-2 border-emerald-100 shadow-md flex items-center space-x-4 hover:translate-y-[-2px] transition-transform duration-200 relative overflow-hidden">
+          <div className="p-3 bg-emerald-50 rounded-xl text-emerald-600">
+            <Clock className="w-5 h-5" />
           </div>
           <div>
-            <p className="text-xs text-slate-400 font-medium font-sans tracking-wide uppercase">Quá Hạn Chưa Nộp</p>
-            <h3 className="text-2xl font-bold font-sans text-slate-800 mt-1">{overdueCount} chỉ tiêu</h3>
-            <p className="text-xs text-slate-500 mt-0.5 font-sans font-normal">
-              Cảnh báo nhắc nhở cờ đỏ khẩn
+            <p className="text-[11px] text-slate-400 font-bold font-sans tracking-wide uppercase">Điểm Thời gian TB</p>
+            <h3 className="text-xl font-extrabold font-sans text-emerald-600 leading-none mt-1.5">{avgTimeScore.toFixed(1)} đ</h3>
+            <p className="text-[10px] text-slate-400 mt-1 font-sans font-medium">
+              Đạt tỉ lệ đúng hạn: <strong className="text-emerald-700">{onTimeRate.toFixed(0)}%</strong>
             </p>
           </div>
+          <div className="absolute bottom-0 right-0 w-12 h-1 bg-emerald-500 rounded-bl-full" />
+        </div>
+
+        {/* Metric 5 - Cảnh báo Chậm trễ */}
+        <div className="bg-white p-5 rounded-2xl border-2 border-rose-100 shadow-md flex items-center space-x-4 hover:translate-y-[-2px] transition-transform duration-200 relative overflow-hidden">
+          <div className="p-3 bg-rose-50 rounded-xl text-rose-600">
+            <AlertCircle className="w-5 h-5" />
+          </div>
+          <div>
+            <p className="text-[11px] text-slate-400 font-bold font-sans tracking-wide uppercase">Chỉ tiêu Quá hạn</p>
+            <h3 className="text-xl font-extrabold font-sans text-rose-600 leading-none mt-1.5">{overdueCount} chỉ tiêu</h3>
+            <p className="text-[10px] text-slate-400 mt-1 font-sans font-medium">
+              Các mục cần bám sát nhắc nhở
+            </p>
+          </div>
+          <div className="absolute bottom-0 right-0 w-12 h-1 bg-rose-500 rounded-bl-full" />
         </div>
 
       </div>
