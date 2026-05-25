@@ -53,7 +53,7 @@ export default function Login({ onLoginSuccess, units }: LoginProps) {
           onLoginSuccess({
             username: 'admin',
             role: 'admin',
-            displayName: 'Trưởng ban Thi đua (Cục Thống kê)',
+            displayName: 'Trưởng ban Thi đua (Thống kê tỉnh Hưng Yên)',
             permissions: ['view_reports', 'grade_reports', 'upload_excel', 'manage_accounts']
           });
         } else if (matchedCustom && matchedCustom.role === 'admin') {
@@ -106,7 +106,7 @@ export default function Login({ onLoginSuccess, units }: LoginProps) {
             Hành chính công • Tổng cục thống kê
           </span>
           <h2 className="mt-2 text-xl sm:text-2xl font-black text-slate-900 tracking-tight font-sans">
-            CỔNG ĐĂNG NHẬP THI ĐUA
+            HỆ THỐNG QUẢN LÝ ĐIỂM THI ĐUA
           </h2>
           <p className="mt-1 text-xs text-slate-500 max-w-sm font-sans px-4">
             Hệ thống quản lý, giao chỉ tiêu số liệu và đánh giá thời hạn chấm điểm các chi cục thống kê cấp tỉnh/huyện.
@@ -130,7 +130,7 @@ export default function Login({ onLoginSuccess, units }: LoginProps) {
               }`}
             >
               <KeyRound className="w-3.5 h-3.5" />
-              <span>Người chấm (Admin)</span>
+              <span> (Phong_TK)</span>
             </button>
             <button 
               type="button"
@@ -142,7 +142,7 @@ export default function Login({ onLoginSuccess, units }: LoginProps) {
               }`}
             >
               <CheckSquare className="w-3.5 h-3.5" />
-              <span>Đơn vị nộp (TKCS)</span>
+              <span> (TKCS)</span>
             </button>
           </div>
 
