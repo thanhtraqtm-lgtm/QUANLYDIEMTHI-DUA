@@ -106,7 +106,7 @@ export default function Login({ onLoginSuccess, units }: LoginProps) {
             Thống kê Tỉnh Hưng Yên
           </span>
           <h2 className="mt-2 text-xl sm:text-2xl font-black text-slate-900 tracking-tight font-sans">
-            CỔNG ĐĂNG NHẬP THI ĐUA
+            HỆ THỐNG ĐĂNG NHẬP THI ĐUA
           </h2>
           <p className="mt-1 text-xs text-slate-500 max-w-sm font-sans px-4">
             Hệ thống quản lý, giao chỉ tiêu số liệu và đánh giá thời hạn chấm điểm các chi cục thống kê cấp tỉnh/huyện.
