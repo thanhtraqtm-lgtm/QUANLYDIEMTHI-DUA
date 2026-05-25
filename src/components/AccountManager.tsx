@@ -132,7 +132,7 @@ export default function AccountManager({
 
   const handleTogglePermissionOnUser = (user: User, permId: string) => {
     if (user.username === 'admin') {
-      alert('Không thể thay đổi quyền hạn của tài khoản Admin tối cao!');
+      alert('Không thể thay đổi quyền hạn của tài khoản Quản trị viên hệ thống!');
       return;
     }
     
@@ -187,7 +187,7 @@ export default function AccountManager({
               <Users className="w-5 h-5 text-sky-400" /> PHÂN QUYỀN TÀI KHOẢN NGƯỜI DÙNG & NGƯỜI CHẤM
             </h3>
             <p className="text-[11px] text-slate-400 leading-relaxed font-sans">
-              Công cụ quản trị viên tối cao: Thiết lập tài khoản riêng biệt cho các cán bộ khảo thí tại Cục Thống kê (Quyền giám khảo/Người chấm) và đại diện các Chi cục Thống kê huyện/thành phố (TKCS). Cấp hoặc thu hồi các quyền truy cập, đặt lại khóa mật khẩu nhanh chóng.
+              Công cụ Quản lý Hệ thống: Thiết lập tài khoản riêng biệt cho các cán bộ phụ trách thi đua (Quyền giám khảo/Người chấm) và đại diện các Chi cục Thống kê cấp huyện (đơn vị báo cáo). Cấp hoặc thu hồi các quyền truy cập, đặt lại khóa mật khẩu nhanh chóng.
             </p>
           </div>
           <div className="flex gap-2">
@@ -315,7 +315,7 @@ export default function AccountManager({
 
                   {role === 'tkcs' && (
                     <div className="space-y-1.5 animate-in fade-in duration-250">
-                      <label className="text-[10px] text-slate-400 font-bold block uppercase font-mono">Chi cục thống kê cấp huyện trực thuộc</label>
+                      <label className="text-[10px] text-slate-400 font-bold block uppercase font-mono">Đơn vị Thống kê Cơ Sở trực thuộc</label>
                       <select 
                         value={selectedUnitCode}
                         onChange={(e) => setSelectedUnitCode(e.target.value)}
@@ -506,7 +506,7 @@ export default function AccountManager({
                             {acc.unitCode}
                           </span>
                           <span className="text-slate-500 text-[11px] truncate max-w-[150px]">
-                            {units.find(u => u.Ma_DV === acc.unitCode)?.Ten_Don_Vi || 'Chi cục phụ thuộc'}
+                            {units.find(u => u.Ma_DV === acc.unitCode)?.Ten_Don_Vi || 'Đơn vị phụ thuộc'}
                           </span>
                         </div>
                       ) : (
