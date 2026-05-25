@@ -83,10 +83,10 @@ export default function StatsDashboard({ submissions, leaderboard, onSelectUnit 
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <span className="text-[10px] font-bold uppercase tracking-wider bg-white/10 text-sky-200 px-3 py-1 rounded-full border border-sky-500/20">
-              Chiến dịch thi đua Thống kê 2026
+             THỔNG KÊ TỈNH HƯNG YÊN
             </span>
             <h2 className="text-xl md:text-2xl font-black mt-2 tracking-tight">
-              BẢNG VÀNG THI ĐUA ĐIỂM CHẤT LƯỢNG & TIẾN ĐỘ THỜI GIAN
+              HỆ THỐNG THI ĐUA ĐIỂM CHẤT LƯỢNG & TIẾN ĐỘ THỜI GIAN
             </h2>
             <p className="text-xs text-slate-300 mt-1.5 max-w-2xl font-sans leading-relaxed">
               Hệ thống thi đua tự động đánh giá chi tiết theo hai cột điểm chính: <strong className="text-sky-300 font-bold">Điểm thời gian</strong> (tối đa đạt đúng hạn, giảm trừ điểm trễ) và <strong className="text-yellow-400 font-semibold">Điểm chất lượng Chuyên môn</strong> do Cục Thống kê chấm duyệt.
